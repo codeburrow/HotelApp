@@ -12,6 +12,7 @@ import CoreLocation
 class ViewController: UIViewController {
 
     @IBOutlet weak var lastSeenLabel: UILabel!
+    @IBOutlet weak var beaconNameLabel: UILabel!
     
     let locationManager = CLLocationManager()
     
@@ -142,6 +143,7 @@ extension ViewController: CLLocationManagerDelegate {
         if !beacons.isEmpty {
             let currentDateTime = DateFormatter.localizedString(from: Date(), dateStyle: .full, timeStyle: .medium)
             lastSeenLabel.text = currentDateTime
+            beaconNameLabel.text = region.identifier
         }
     }
     

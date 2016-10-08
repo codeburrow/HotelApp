@@ -31,6 +31,11 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No iBeacon found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OAk-gG-ejd">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -42,6 +47,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="beaconNameLabel" destination="OAk-gG-ejd" id="9BU-zK-w8e"/>
                         <outlet property="lastSeenLabel" destination="MJj-D3-vX0" id="PiX-Sr-9Jr"/>
                     </connections>
                 </viewController>
