@@ -141,7 +141,7 @@ extension ViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
         if !beacons.isEmpty {
-            let currentDateTime = DateFormatter.localizedString(from: Date(), dateStyle: .full, timeStyle: .medium)
+            let currentDateTime = DateFormatter.localizedString(from: Date(), dateStyle: .medium, timeStyle: .medium)
             lastSeenLabel.text = currentDateTime
             beaconNameLabel.text = region.identifier
         }
