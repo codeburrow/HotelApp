@@ -23,8 +23,8 @@ class ViewController: UIViewController {
         locationManager.delegate = self
         
         // Request permission to use location services
-        if (CLLocationManager.authorizationStatus() != CLAuthorizationStatus.authorizedWhenInUse) {
-            locationManager.requestWhenInUseAuthorization()
+        if (CLLocationManager.authorizationStatus() != CLAuthorizationStatus.authorizedAlways) {
+            locationManager.requestAlwaysAuthorization()
         }
         
         // Setup our fake iPad beacon
