@@ -62,7 +62,8 @@ extension ViewController {
         
         // Start monitoring the specified iBeacon Region
         locationManager.startRangingBeacons(in: beaconRegion)
-//        locationManager.startMonitoring(for: beaconRegion)
+        locationManager.startMonitoring(for: beaconRegion)
+        
         locationManager.pausesLocationUpdatesAutomatically = false
         
     }
@@ -149,6 +150,10 @@ extension ViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, rangingBeaconsDidFailFor region: CLBeaconRegion, withError error: Error) {
         print("Ranging failed with error \(error.localizedDescription)")
+    }
+    
+    func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error) {
+        print("Monitoring failed with error \(error.localizedDescription)")
     }
     
 }
