@@ -11,6 +11,7 @@ target 'HotelApp' do
   target 'HotelAppTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'Alamofire'
   end
 
   target 'HotelAppUITests' do

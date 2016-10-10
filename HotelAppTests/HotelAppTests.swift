@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Alamofire
 @testable import HotelApp
 
 class HotelAppTests: XCTestCase {
@@ -31,6 +32,30 @@ class HotelAppTests: XCTestCase {
         self.measure {
             // Put the code you want to measure the time of here.
         }
+    }
+    
+    func testRequestRemoteNotification() {
+        let expect = expectation(description: "waitForWebService")
+        let notifRequestUrl = "https://hotelapp-web.herokuapp.com/push"
+        Alamofire.request(notifRequestUrl).responseJSON { (response) in
+            if let JSON = response.result.value {
+                print("JSON: \(JSON)")
+            }
+            expect.fulfill()
+        }
+        waitForExpectations(timeout: 10, handler: nil)
+    }
+    
+    func testSerialiseRemoteNotificationRequestResponse() {
+        let expect = expectation(description: "serialiseResponse")
+        let notifRequestUrl = "https://hotelapp-web.herokuapp.com/push"
+        Alamofire.request(notifRequestUrl).responseJSON { (response) in
+            if let JSON = response.result.value {
+                print("JSON: \(JSON)")
+                expect.fulfill()
+            }
+        }
+        waitForExpectations(timeout: 10, handler: nil)
     }
     
 }
