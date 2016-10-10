@@ -20,8 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        // Request permission for Push Notifications
+        // Setting up for Notifications
         registerForRemoteNotifications()
+        UNUserNotificationCenter.current().delegate = self
         
         // Request permission to use location services
         if (CLLocationManager.authorizationStatus() != CLAuthorizationStatus.authorizedAlways) {
@@ -95,7 +96,7 @@ extension AppDelegate {
     }
 }
 
-// MARK: - Push Notifications
+// MARK: - Registering for Push Notifications
 extension AppDelegate {
     
     func registerForRemoteNotifications() {
@@ -113,18 +114,29 @@ extension AppDelegate {
         print("Device token: \(deviceTokenString)")
     }
     
-    // MARK: Error handling
+    // Handling errors while registering for remote notification
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Failed to register for Remote Notifications: \(error.localizedDescription)")
     }
+    
 }
 
+// MARK: - Handling notifications
+extension AppDelegate: UNUserNotificationCenterDelegate {
 
-
-
-
-
-
-
-
-
+    // When app is in the foreground
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        completionHandler(.alert)
+        
+        let notificationDate = notification.date
+        let notificationBody = notification.request.content.body
+        let notificationDictionary = notification.request.content.userInfo
+        
+        print("Notification date: \(notificationDate)")
+        print("Notification content body: \(notificationBody)")
+        print("Notification content dictionary: \(notificationDictionary)")
+    }
+    
+    
+}
