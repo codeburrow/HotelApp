@@ -47,6 +47,7 @@
 		76174BE41DA7A693004BD00F /* HotelAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HotelAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		76174BE81DA7A694004BD00F /* HotelAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelAppUITests.swift; sourceTree = "<group>"; };
 		76174BEA1DA7A694004BD00F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7638D1BB1DAA815F0087E34F /* HotelApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HotelApp.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +104,7 @@
 				768F11961DA9661300454D6A /* Views */,
 				76174BCF1DA7A693004BD00F /* Assets.xcassets */,
 				76174BD41DA7A693004BD00F /* Info.plist */,
+				7638D1BB1DAA815F0087E34F /* HotelApp.entitlements */,
 			);
 			path = HotelApp;
 			sourceTree = "<group>";
@@ -219,6 +221,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = XZUC27U986;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					76174BD81DA7A693004BD00F = {
 						CreatedOnToolsVersion = 8.0;
@@ -437,10 +444,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HotelApp/HotelApp.entitlements;
 				DEVELOPMENT_TEAM = XZUC27U986;
 				INFOPLIST_FILE = HotelApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.CLoutas.HotelApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CodeBurrow.HotelApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -450,10 +458,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HotelApp/HotelApp.entitlements;
 				DEVELOPMENT_TEAM = XZUC27U986;
 				INFOPLIST_FILE = HotelApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.CLoutas.HotelApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CodeBurrow.HotelApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
