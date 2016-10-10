@@ -26,6 +26,11 @@ class ViewController: UIViewController {
         setupBeacon(withUuidString: "E2C56DB5-DFFB-48D2-B060-D0F5A71096E0")
     }
 
+    @IBAction func requestPushNotification(_ sender: UIButton) {
+        let notifRequestUrl = URL(string: "https://hotelapp-web.herokuapp.com/push")
+        
+    }
+    
 }
 
 // MARK: - Managing iBeacons
