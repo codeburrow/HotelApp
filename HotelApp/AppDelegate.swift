@@ -21,8 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // Setting up for Notifications
+        application.applicationIconBadgeNumber = 0
         registerForRemoteNotifications()
         UNUserNotificationCenter.current().delegate = self
+        
+        handleApplicationLaunchByNotification(appLaunchOptions: launchOptions)
         
         // Request permission to use location services
         if (CLLocationManager.authorizationStatus() != CLAuthorizationStatus.authorizedAlways) {
@@ -138,5 +141,12 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         print("Notification content dictionary: \(notificationDictionary)")
     }
     
-    
+    // MARK: - Handle Application Launching through a Notification
+    func handleApplicationLaunchByNotification(appLaunchOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
+        if let notification = launchOptions?[UIApplicationLaunchOptionsKey.remoteNotification] as? [String: AnyObject] {
+            print("App launched via a notification")
+            print(notification)
+        }
+    }
+
 }
