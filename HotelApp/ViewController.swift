@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import Alamofire
 
 class ViewController: UIViewController {
 
@@ -27,8 +28,18 @@ class ViewController: UIViewController {
     }
 
     @IBAction func requestPushNotification(_ sender: UIButton) {
-        let notifRequestUrl = URL(string: "https://hotelapp-web.herokuapp.com/push")
-        
+//        let notifRequestUrl = "https://hotelapp-web.herokuapp.com/push"
+        let notifRequestUrl = "https://hotelapp-web.herokuapp.com/push"
+        Alamofire.request(notifRequestUrl).responseJSON { (response) in
+            print(response.request)  // original URL request
+            print(response.response) // HTTP URL response
+            print(response.data)     // server data
+            print(response.result)   // result of response serialization
+            
+            if let JSON = response.result.value {
+                print("JSON: \(JSON)")
+            }
+        }
     }
     
 }
