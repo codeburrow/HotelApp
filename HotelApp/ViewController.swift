@@ -31,11 +31,10 @@ class ViewController: UIViewController {
 //        let notifRequestUrl = "https://hotelapp-web.herokuapp.com/push"
         let notifRequestUrl = "https://hotelapp-web.herokuapp.com/push"
         Alamofire.request(notifRequestUrl).responseString { (response) in
-            print(response.request)  // original URL request
-            print(response.response) // HTTP URL response
-            print(response.data)     // server data
-            print(response.result)   // result of response serialization
-            
+//            print(response.request)  // original URL request
+//            print(response.response) // HTTP URL response
+//            print(response.data)     // server data
+//            print(response.result)   // result of response serialization            
             if let responseString = response.result.value {
                 print("Response string: \(responseString)")
             }
