@@ -134,11 +134,13 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         
         let notificationDate = notification.date
         let notificationBody = notification.request.content.body
-        let notificationDictionary = notification.request.content.userInfo
+        let notificationDictionary = notification.request.content.userInfo // as? [String: [String: String]]
         
         print("Notification date: \(notificationDate)")
         print("Notification content body: \(notificationBody)")
         print("Notification content dictionary: \(notificationDictionary)")
+        
+//        simpleAlert(title: notificationBody, message: (notificationDictionary["aps"]?["link_url"])!)
     }
     
     // MARK: - Handle Application Launching through a Notification
