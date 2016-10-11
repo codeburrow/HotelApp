@@ -24,9 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Setting up for Notifications
         application.applicationIconBadgeNumber = 0
         registerForRemoteNotifications()
+        setupNotificationActionCategories()
         UNUserNotificationCenter.current().delegate = self
-        
-        handleApplicationLaunchByNotification(appLaunchOptions: launchOptions)
         
         // Request permission to use location services
         if (CLLocationManager.authorizationStatus() != CLAuthorizationStatus.authorizedAlways) {
@@ -112,6 +111,14 @@ extension AppDelegate {
         UNUserNotificationCenter.current().getNotificationSettings { (settings) in /*...*/ }
     }
     
+    func setupNotificationActionCategories() {
+        let yesAction = UNNotificationAction(identifier: "yes", title: "Yes", options: [])
+        let noAction = UNNotificationAction(identifier: "no", title: "No", options: [])
+        let category = UNNotificationCategory(identifier: "com.CodeBurrow.HotelApp.notifications.test", actions: [yesAction, noAction], intentIdentifiers: [], options: [])
+        
+        UNUserNotificationCenter.current().setNotificationCategories([category])
+    }
+    
     // MARK: Getting device token
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let deviceTokenString = deviceToken.reduce("", { $0 + String(format: "%02X", $1) })
@@ -127,25 +134,32 @@ extension AppDelegate {
 
 // MARK: - Handling notifications
 extension AppDelegate: UNUserNotificationCenterDelegate {
-
-    // When app is in the foreground
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        
-        // Present an in-app notification
-        completionHandler(.alert)
-        
-        // Present the notification via our simpleAlert popup view
-        let notificationBody = notification.request.content.body
-        let notificationJSON = JSON(notification.request.content.userInfo["aps"])
-        simpleAlert(title: notificationBody, message: notificationJSON["link_url"].stringValue)
+    
+    // Respond to user actions on a notification
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        switch response.actionIdentifier {
+        case "yes":
+            print("Yes button pressed")
+        case "no":
+            print("No button pressed")
+        default:
+            print("Something else was pressed without a specified actionIdentifier")
+        }
+        completionHandler()
     }
     
-    // MARK: - Handle Application Launching through a Notification
-    func handleApplicationLaunchByNotification(appLaunchOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
-        if let notification = launchOptions?[UIApplicationLaunchOptionsKey.remoteNotification] as? [String: AnyObject] {
-            print("App launched via a notification")
-            print(notification)
-        }
+    // Present an in-app notification when the app is in the foreground
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler(.alert)
     }
+    
+    // Tell the app that a remote notification arrived that indicates there is data to be fetched
+//    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+//        // ...
+//        completionHandler(.newData)
+//        
+//    }
+    
+    
 
 }
