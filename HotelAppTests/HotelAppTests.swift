@@ -37,14 +37,7 @@ class HotelAppTests: XCTestCase {
     func testRequestRemoteNotification() {
         let expect = expectation(description: "waitForWebService")
         let notifRequestUrl = "https://hotelapp-web.herokuapp.com/push"
-        Alamofire.request(notifRequestUrl).responseJSON { (response) in
-            print(response.request)  // original URL request
-            print(response.response) // HTTP URL response
-            print(response.data)     // server data
-            print(response.result)   // result of response serialization
-            if let JSON = response.result.value {
-                print("JSON: \(JSON)")
-            }
+        Alamofire.request(notifRequestUrl).responseString { (response) in
             expect.fulfill()
         }
         waitForExpectations(timeout: 10, handler: nil)
@@ -53,13 +46,15 @@ class HotelAppTests: XCTestCase {
     func testSerialiseRemoteNotificationRequestResponse() {
         let expect = expectation(description: "serialiseResponse")
         let notifRequestUrl = "https://hotelapp-web.herokuapp.com/push"
-        Alamofire.request(notifRequestUrl).responseJSON { (response) in
-            if let JSON = response.result.value {
-                print("JSON: \(JSON)")
+        var serverResponseString: String?
+        Alamofire.request(notifRequestUrl).responseString { (response) in
+            if let responseString = response.result.value {
+                serverResponseString = responseString
                 expect.fulfill()
             }
         }
         waitForExpectations(timeout: 10, handler: nil)
+        XCTAssertEqual(serverResponseString!, "Successful Delivery!\n")
     }
     
 }
