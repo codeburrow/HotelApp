@@ -7,11 +7,13 @@ target 'HotelApp' do
 
   # Pods for HotelApp
   pod 'Alamofire'
+  pod 'SwiftyJSON'
 
   target 'HotelAppTests' do
     inherit! :search_paths
     # Pods for testing
     pod 'Alamofire'
+    pod 'SwiftyJSON'
   end
 
   target 'HotelAppUITests' do

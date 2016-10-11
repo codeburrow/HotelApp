@@ -9,6 +9,7 @@
 import UIKit
 import CoreLocation
 import UserNotifications
+import SwiftyJSON
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -130,17 +131,13 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     // When app is in the foreground
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         
+        // Present an in-app notification
         completionHandler(.alert)
         
-        let notificationDate = notification.date
+        // Present the notification via our simpleAlert popup view
         let notificationBody = notification.request.content.body
-        let notificationDictionary = notification.request.content.userInfo // as? [String: [String: String]]
-        
-        print("Notification date: \(notificationDate)")
-        print("Notification content body: \(notificationBody)")
-        print("Notification content dictionary: \(notificationDictionary)")
-        
-//        simpleAlert(title: notificationBody, message: (notificationDictionary["aps"]?["link_url"])!)
+        let notificationJSON = JSON(notification.request.content.userInfo["aps"])
+        simpleAlert(title: notificationBody, message: notificationJSON["link_url"].stringValue)
     }
     
     // MARK: - Handle Application Launching through a Notification
