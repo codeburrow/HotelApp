@@ -9,8 +9,9 @@
 import Foundation
 import UserNotifications
 import UIKit
+import Alamofire
 
-class NotificationManager: NSObject {
+class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     
     func setUpNotificationsFor(_ application: UIApplication) {
         application.applicationIconBadgeNumber = 0
@@ -41,10 +42,18 @@ class NotificationManager: NSObject {
         UNUserNotificationCenter.current().setNotificationCategories([category1, category2])
     }
     
-    // MARK: Getting device token
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        let deviceTokenString = deviceToken.reduce("", { $0 + String(format: "%02X", $1) })
-        print("Device token: \(deviceTokenString)")
+    // MARK: Register device token on the server
+    func registerDeviceToken(deviceToken: String, forUserID userID: String) {
+        let parameters: Parameters = ["user_id": userID]
+        Alamofire.request("http://hotelapp-web.herokuapp.com/getUserIdFromPostRequest", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseString { (response) in
+            print(response.request)  // original URL request
+            print(response.response) // HTTP URL response
+            print(response.data)     // server data
+            print(response.result)   // result of response serialization
+            if let responseString = response.result.value {
+                print("Response string: \(responseString)")
+            }
+        }
     }
     
     // Handling errors while registering for remote notification
@@ -52,10 +61,7 @@ class NotificationManager: NSObject {
         print("Failed to register for Remote Notifications: \(error.localizedDescription)")
     }
     
-}
-
 // MARK: - Handling notifications
-extension NotificationManager: UNUserNotificationCenterDelegate {
     
     // Respond to user actions on a notification
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
