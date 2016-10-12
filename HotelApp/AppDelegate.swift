@@ -68,17 +68,17 @@ extension AppDelegate: CLLocationManagerDelegate {
             
         case .authorizedAlways, .authorizedWhenInUse:
             // Starts the generation of updates that report the user’s current location.
-            simpleAlert(title: "Authorised", message: "\(status) authorisation granted")
+            simpleAlert(title: "Authorised", message: "locationManager(_:didChangeAuthorization:) - \(status) authorisation granted")
             locationManager.startUpdatingLocation()
             
         case .restricted:
             // Your app is not authorized to use location services.
-            simpleAlert(title: "Permission Error", message: "Need Location Service Permission To Access Beacon")
+            simpleAlert(title: "Permission Error", message: "locationManager(_:didChangeAuthorization:) - Need Location Service Permission To Access Beacon")
             
             
         case .denied:
             // The user explicitly denied the use of location services for this app or location services are currently disabled in Settings.
-            simpleAlert(title: "Permission Error", message: "Need Location Service Permission To Access Beacon")
+            simpleAlert(title: "Permission Error", message: "locationManager(_:didChangeAuthorization:) - Need Location Service Permission To Access Beacon")
             
         default:
             // handle .NotDetermined here
