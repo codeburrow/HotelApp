@@ -15,6 +15,7 @@
 		76174BD31DA7A693004BD00F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76174BD11DA7A693004BD00F /* LaunchScreen.storyboard */; };
 		76174BDE1DA7A693004BD00F /* HotelAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76174BDD1DA7A693004BD00F /* HotelAppTests.swift */; };
 		76174BE91DA7A694004BD00F /* HotelAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76174BE81DA7A694004BD00F /* HotelAppUITests.swift */; };
+		767B83C61DAE2F7400BD5DE3 /* TrackingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767B83C51DAE2F7400BD5DE3 /* TrackingManager.swift */; };
 		8CC7FFCCAC5E820CAD03F081 /* Pods_HotelAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0374D98F3668FF661ACE87BC /* Pods_HotelAppTests.framework */; };
 		F3C9FA816C3A9CB79C073F4E /* Pods_HotelApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA48E240441A07E2BA07084C /* Pods_HotelApp.framework */; };
 /* End PBXBuildFile section */
@@ -54,6 +55,7 @@
 		76174BE81DA7A694004BD00F /* HotelAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelAppUITests.swift; sourceTree = "<group>"; };
 		76174BEA1DA7A694004BD00F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7638D1BB1DAA815F0087E34F /* HotelApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HotelApp.entitlements; sourceTree = "<group>"; };
+		767B83C51DAE2F7400BD5DE3 /* TrackingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingManager.swift; sourceTree = "<group>"; };
 		796DA8BEAAF46C4AB5C8419C /* Pods-HotelAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotelAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HotelAppTests/Pods-HotelAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		938378579CBC58550345BC3B /* Pods_HotelAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HotelAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB2BE5D06F4EF00A298F3F07 /* Pods-HotelAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotelAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HotelAppTests/Pods-HotelAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 		768F11951DA9660D00454D6A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				767B83C51DAE2F7400BD5DE3 /* TrackingManager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -470,6 +473,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				767B83C61DAE2F7400BD5DE3 /* TrackingManager.swift in Sources */,
 				76174BCB1DA7A693004BD00F /* ViewController.swift in Sources */,
 				76174BC91DA7A693004BD00F /* AppDelegate.swift in Sources */,
 			);
