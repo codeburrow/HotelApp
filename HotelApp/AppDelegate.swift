@@ -112,11 +112,15 @@ extension AppDelegate {
     }
     
     func setupNotificationActionCategories() {
-        let yesAction = UNNotificationAction(identifier: "yes", title: "Yes", options: [])
-        let noAction = UNNotificationAction(identifier: "no", title: "No", options: [])
-        let category = UNNotificationCategory(identifier: "com.CodeBurrow.HotelApp.notifications.test", actions: [yesAction, noAction], intentIdentifiers: [], options: [])
+        let yes1Action = UNNotificationAction(identifier: "yes1", title: "Yes 1", options: [])
+        let no1Action = UNNotificationAction(identifier: "no1", title: "No 1", options: [])
+        let category1 = UNNotificationCategory(identifier: "com.CodeBurrow.HotelApp.notifications.test1", actions: [yes1Action, no1Action], intentIdentifiers: [], options: [])
         
-        UNUserNotificationCenter.current().setNotificationCategories([category])
+        let yes2Action = UNNotificationAction(identifier: "yes2", title: "Yes 2", options: [])
+        let no2Action = UNNotificationAction(identifier: "no2", title: "No2 ", options: [])
+        let category2 = UNNotificationCategory(identifier: "com.CodeBurrow.HotelApp.notifications.test2", actions: [yes2Action, no2Action], intentIdentifiers: [], options: [])
+        
+        UNUserNotificationCenter.current().setNotificationCategories([category1, category2])
     }
     
     // MARK: Getting device token
@@ -138,9 +142,13 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     // Respond to user actions on a notification
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         switch response.actionIdentifier {
-        case "yes":
+        case "yes1":
             print("Yes button pressed")
-        case "no":
+        case "no1":
+            print("No button pressed")
+        case "yes2":
+            print("Yes button pressed")
+        case "no2":
             print("No button pressed")
         default:
             print("Something else was pressed without a specified actionIdentifier")
