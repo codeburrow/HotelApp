@@ -82,7 +82,7 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     
     // Present an in-app notification when the app is in the foreground
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler(.alert)
+        completionHandler([.alert, .sound])
 }
 
 // Tell the app that a remote notification arrived that indicates there is data to be fetched
