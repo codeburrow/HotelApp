@@ -114,7 +114,7 @@ extension AppDelegate {
     func setupNotificationActionCategories() {
         let yes1Action = UNNotificationAction(identifier: "yes1", title: "Yes 1", options: [])
         let no1Action = UNNotificationAction(identifier: "no1", title: "No 1", options: [])
-        let category1 = UNNotificationCategory(identifier: "com.CodeBurrow.HotelApp.notifications.test1", actions: [yes1Action, no1Action], intentIdentifiers: [], options: [])
+        let category1 = UNNotificationCategory(identifier: "com.CodeBurrow.HotelApp.notifications.test", actions: [yes1Action, no1Action], intentIdentifiers: [], options: [])
         
         let yes2Action = UNNotificationAction(identifier: "yes2", title: "Yes 2", options: [])
         let no2Action = UNNotificationAction(identifier: "no2", title: "No2 ", options: [])
@@ -143,13 +143,13 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         switch response.actionIdentifier {
         case "yes1":
-            print("Yes button pressed")
+            print("Yes 1 button pressed")
         case "no1":
-            print("No button pressed")
+            print("No 1 button pressed")
         case "yes2":
-            print("Yes button pressed")
+            print("Yes 2 button pressed")
         case "no2":
-            print("No button pressed")
+            print("No 2 button pressed")
         default:
             print("Something else was pressed without a specified actionIdentifier")
         }
