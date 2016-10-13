@@ -13,6 +13,37 @@ import Alamofire
 
 class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     
+    // MARK: - Handling notifications
+    
+    // Respond to user actions on a notification
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        switch response.actionIdentifier {
+        case "yes1":
+            print("Yes 1 button pressed")
+        case "no1":
+            print("No 1 button pressed")
+        case "yes2":
+            print("Yes 2 button pressed")
+        case "no2":
+            print("No 2 button pressed")
+        default:
+            print("Something else was pressed without a specified actionIdentifier")
+        }
+        completionHandler()
+    }
+    
+    // Present an in-app notification when the app is in the foreground
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .sound])
+    }
+
+//    // Tell the app that a remote notification arrived that indicates there is data to be fetched
+//    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+//        // ...
+//        completionHandler(.newData)
+//    }
+
+    // MARK: - Registering for Push Notifications
     func setUpNotificationsFor(_ application: UIApplication) {
         application.applicationIconBadgeNumber = 0
         registerForRemoteNotifications()
@@ -20,7 +51,6 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
         UNUserNotificationCenter.current().delegate = self
     }
     
-    // MARK: - Registering for Push Notifications
     func registerForRemoteNotifications() {
         // Registering Notifications
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in /*...*/ }
@@ -61,35 +91,4 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
         print("Failed to register for Remote Notifications: \(error.localizedDescription)")
     }
     
-// MARK: - Handling notifications
-    
-    // Respond to user actions on a notification
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        switch response.actionIdentifier {
-        case "yes1":
-            print("Yes 1 button pressed")
-        case "no1":
-            print("No 1 button pressed")
-        case "yes2":
-            print("Yes 2 button pressed")
-        case "no2":
-            print("No 2 button pressed")
-        default:
-            print("Something else was pressed without a specified actionIdentifier")
-        }
-        completionHandler()
-    }
-    
-    // Present an in-app notification when the app is in the foreground
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.alert, .sound])
-}
-
-// Tell the app that a remote notification arrived that indicates there is data to be fetched
-//    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-//        // ...
-//        completionHandler(.newData)
-//
-//    }
-
 }
