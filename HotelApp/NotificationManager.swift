@@ -50,8 +50,8 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
             print(response.response) // HTTP URL response
             print(response.data)     // server data
             print(response.result)   // result of response serialization
-            if let responseString = response.result.value {
-                print("Response string: \(responseString)")
+            if let responseValue = response.result.value {
+                print("Response value: \(responseValue)")
             }
         }
     }
