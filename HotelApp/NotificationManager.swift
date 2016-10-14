@@ -76,10 +76,10 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     func registerDeviceToken(_ deviceToken: String, forUserID userID: String) {
         let parameters: Parameters = ["user_id": userID, "user_token": deviceToken]
         Alamofire.request("http://hotelapp-web.herokuapp.com/updateUserToken", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
-            print(response.request)  // original URL request
-            print(response.response) // HTTP URL response
-            print(response.data)     // server data
-            print(response.result)   // result of response serialization
+//            print(response.request)  // original URL request
+//            print(response.response) // HTTP URL response
+//            print(response.data)     // server data
+//            print(response.result)   // result of response serialization
             if let responseValue = response.result.value {
                 print("Response value: \(responseValue)")
             }
