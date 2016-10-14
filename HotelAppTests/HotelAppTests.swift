@@ -8,6 +8,7 @@
 
 import XCTest
 import Alamofire
+import SwiftyJSON
 @testable import HotelApp
 
 class HotelAppTests: XCTestCase {
@@ -46,27 +47,25 @@ class HotelAppTests: XCTestCase {
     }
     
     func testDeviceTokenRegistration() {
-        //let deviceToken = "052ECE50BFD2D03315A4835D3AEB156C0B64BB879F75063FA20CEAF1F54DEE31"
+        let deviceToken = "5939663C6FC82848A192A745B55B82D79D841E35AA799BAAD0A279BEFEB62D65"
         let userID = "2"
-        let parameters: Parameters = ["user_id": userID]
+        let parameters: Parameters = ["user_id": userID, "user_token": deviceToken]
         
         let expect = expectation(description: "waitForServerResponse")
-        var serverResponseString: String?
+        var responseJSON: JSON?
         
-        Alamofire.request("http://hotelapp-web.herokuapp.com/getUserIdFromPostRequest", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseString { (response) in
+        Alamofire.request("http://hotelapp-web.herokuapp.com/updateUserToken", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
             print(response.request)  // original URL request
             print(response.response) // HTTP URL response
             print(response.data)     // server data
             print(response.result)   // result of response serialization
-            if let responseValue = response.result.value {
-                print("Response value: \(responseValue)")
-                serverResponseString = responseValue
-            }
+            responseJSON = JSON(response.result.value)
+            print("Response value: \(responseJSON)")
             expect.fulfill()
         }
         
         waitForExpectations(timeout: 10, handler: nil)
-        XCTAssertFalse((serverResponseString?.isEmpty)!)
+        XCTAssertEqual(responseJSON?["success"], true)
     }
     
 }
