@@ -23,7 +23,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "54"
             endingLineNumber = "54"
-            landmarkName = "registerDeviceToken(deviceToken:forUserID:)"
+            landmarkName = "registerForRemoteNotifications()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

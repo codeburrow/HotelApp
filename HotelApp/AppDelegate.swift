@@ -53,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: Getting device token for Push Notifications
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let deviceTokenString = deviceToken.reduce("", { $0 + String(format: "%02X", $1) })
-        notificationManager.registerDeviceToken(deviceToken: deviceTokenString, forUserID: "2")
+        notificationManager.registerDeviceToken(deviceTokenString, forUserID: "2")
         print("didRegisterForRemoteNotificationsWithDeviceToken: \(deviceTokenString)")
     }
     

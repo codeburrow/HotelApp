@@ -73,9 +73,9 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     }
     
     // MARK: Register device token on the server
-    func registerDeviceToken(deviceToken: String, forUserID userID: String) {
-        let parameters: Parameters = ["user_id": userID]
-        Alamofire.request("http://hotelapp-web.herokuapp.com/getUserIdFromPostRequest", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseString { (response) in
+    func registerDeviceToken(_ deviceToken: String, forUserID userID: String) {
+        let parameters: Parameters = ["user_id": userID, "user_token": deviceToken]
+        Alamofire.request("http://hotelapp-web.herokuapp.com/updateUserToken", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
             print(response.request)  // original URL request
             print(response.response) // HTTP URL response
             print(response.data)     // server data
