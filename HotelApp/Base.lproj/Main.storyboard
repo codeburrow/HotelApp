@@ -37,9 +37,27 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eYY-g4-1V2">
-                                        <state key="normal" title="Request Push Notification"/>
+                                        <state key="normal" title="Request Push Notif (none)"/>
                                         <connections>
                                             <action selector="requestPushNotification:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iFx-nX-Mx9"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvy-i9-Yme">
+                                        <state key="normal" title="Request Push Notif (mutable-content)"/>
+                                        <connections>
+                                            <action selector="requestPushNotification:" destination="BYZ-38-t0r" eventType="touchUpInside" id="puJ-q8-xXP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NLF-y8-dGe">
+                                        <state key="normal" title="Request Push Notif (content-available)"/>
+                                        <connections>
+                                            <action selector="requestPushNotification:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iTE-wW-oaR"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ANl-bd-OrR">
+                                        <state key="normal" title="Request Push Notif (both)"/>
+                                        <connections>
+                                            <action selector="requestPushNotification:" destination="BYZ-38-t0r" eventType="touchUpInside" id="94c-oD-0uL"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -55,6 +73,10 @@
                     <connections>
                         <outlet property="beaconNameLabel" destination="OAk-gG-ejd" id="9BU-zK-w8e"/>
                         <outlet property="lastSeenLabel" destination="MJj-D3-vX0" id="PiX-Sr-9Jr"/>
+                        <outlet property="requestNotifBoth" destination="ANl-bd-OrR" id="03w-jI-Fxp"/>
+                        <outlet property="requestNotifContentAvailable" destination="NLF-y8-dGe" id="rsg-7A-fMl"/>
+                        <outlet property="requestNotifMutableContent" destination="fvy-i9-Yme" id="D68-MR-m2m"/>
+                        <outlet property="requestNotifNone" destination="eYY-g4-1V2" id="ty1-7L-Lu1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

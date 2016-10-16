@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>HotelAppNotificationExtension.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -23,6 +28,11 @@
 			<true/>
 		</dict>
 		<key>76174BE31DA7A693004BD00F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7658B4201DB2990A009F7788</key>
 		<dict>
 			<key>primary</key>
 			<true/>

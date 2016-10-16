@@ -12,6 +12,16 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
+enum NotificationOption: CustomStringConvertible {
+    case mutable_content, content_available
+    var description: String {
+        switch self {
+        case .mutable_content: return "mutable-content"
+        case .content_available: return "content-available"
+        }
+    }
+}
+
 class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     
     // MARK: - Handling notifications
@@ -35,6 +45,9 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     
     // Present an in-app notification when the app is in the foreground
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        let x = notification.request.content.userInfo
+        print("Notification received with payload:")
+        print(x)
         completionHandler([.alert, .sound])
     }
 

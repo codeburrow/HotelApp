@@ -15,6 +15,8 @@
 		76174BD31DA7A693004BD00F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76174BD11DA7A693004BD00F /* LaunchScreen.storyboard */; };
 		76174BDE1DA7A693004BD00F /* HotelAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76174BDD1DA7A693004BD00F /* HotelAppTests.swift */; };
 		76174BE91DA7A694004BD00F /* HotelAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76174BE81DA7A694004BD00F /* HotelAppUITests.swift */; };
+		7658B4241DB2990A009F7788 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7658B4231DB2990A009F7788 /* NotificationService.swift */; };
+		7658B4281DB2990A009F7788 /* HotelAppNotificationExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7658B4211DB2990A009F7788 /* HotelAppNotificationExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		767B83C61DAE2F7400BD5DE3 /* TrackingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767B83C51DAE2F7400BD5DE3 /* TrackingManager.swift */; };
 		767B83C81DAE347F00BD5DE3 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767B83C71DAE347F00BD5DE3 /* NotificationManager.swift */; };
 		8CC7FFCCAC5E820CAD03F081 /* Pods_HotelAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0374D98F3668FF661ACE87BC /* Pods_HotelAppTests.framework */; };
@@ -36,7 +38,28 @@
 			remoteGlobalIDString = 76174BC41DA7A693004BD00F;
 			remoteInfo = HotelApp;
 		};
+		7658B4261DB2990A009F7788 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 76174BBD1DA7A693004BD00F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7658B4201DB2990A009F7788;
+			remoteInfo = HotelAppNotificationExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7658B42C1DB2990B009F7788 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				7658B4281DB2990A009F7788 /* HotelAppNotificationExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0374D98F3668FF661ACE87BC /* Pods_HotelAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HotelAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,6 +79,9 @@
 		76174BE81DA7A694004BD00F /* HotelAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelAppUITests.swift; sourceTree = "<group>"; };
 		76174BEA1DA7A694004BD00F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7638D1BB1DAA815F0087E34F /* HotelApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HotelApp.entitlements; sourceTree = "<group>"; };
+		7658B4211DB2990A009F7788 /* HotelAppNotificationExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HotelAppNotificationExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		7658B4231DB2990A009F7788 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		7658B4251DB2990A009F7788 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		767B83C51DAE2F7400BD5DE3 /* TrackingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingManager.swift; sourceTree = "<group>"; };
 		767B83C71DAE347F00BD5DE3 /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		796DA8BEAAF46C4AB5C8419C /* Pods-HotelAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotelAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HotelAppTests/Pods-HotelAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -91,6 +117,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7658B41E1DB2990A009F7788 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -121,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				76174BC71DA7A693004BD00F /* HotelApp */,
+				7658B4221DB2990A009F7788 /* HotelAppNotificationExtension */,
 				76174BDC1DA7A693004BD00F /* HotelAppTests */,
 				76174BE71DA7A693004BD00F /* HotelAppUITests */,
 				76174BC61DA7A693004BD00F /* Products */,
@@ -135,6 +169,7 @@
 				76174BC51DA7A693004BD00F /* HotelApp.app */,
 				76174BD91DA7A693004BD00F /* HotelAppTests.xctest */,
 				76174BE41DA7A693004BD00F /* HotelAppUITests.xctest */,
+				7658B4211DB2990A009F7788 /* HotelAppNotificationExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -169,6 +204,15 @@
 				76174BEA1DA7A694004BD00F /* Info.plist */,
 			);
 			path = HotelAppUITests;
+			sourceTree = "<group>";
+		};
+		7658B4221DB2990A009F7788 /* HotelAppNotificationExtension */ = {
+			isa = PBXGroup;
+			children = (
+				7658B4231DB2990A009F7788 /* NotificationService.swift */,
+				7658B4251DB2990A009F7788 /* Info.plist */,
+			);
+			path = HotelAppNotificationExtension;
 			sourceTree = "<group>";
 		};
 		768F11951DA9660D00454D6A /* Model */ = {
@@ -210,10 +254,12 @@
 				76174BC31DA7A693004BD00F /* Resources */,
 				FB70558A90369BC0185F80A9 /* [CP] Embed Pods Frameworks */,
 				790199B382763283CF1A1113 /* [CP] Copy Pods Resources */,
+				7658B42C1DB2990B009F7788 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7658B4271DB2990A009F7788 /* PBXTargetDependency */,
 			);
 			name = HotelApp;
 			productName = HotelApp;
@@ -261,6 +307,23 @@
 			productReference = 76174BE41DA7A693004BD00F /* HotelAppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		7658B4201DB2990A009F7788 /* HotelAppNotificationExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7658B42B1DB2990B009F7788 /* Build configuration list for PBXNativeTarget "HotelAppNotificationExtension" */;
+			buildPhases = (
+				7658B41D1DB2990A009F7788 /* Sources */,
+				7658B41E1DB2990A009F7788 /* Frameworks */,
+				7658B41F1DB2990A009F7788 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HotelAppNotificationExtension;
+			productName = HotelAppNotificationExtension;
+			productReference = 7658B4211DB2990A009F7788 /* HotelAppNotificationExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -299,6 +362,11 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 76174BC41DA7A693004BD00F;
 					};
+					7658B4201DB2990A009F7788 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = XZUC27U986;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 76174BC01DA7A693004BD00F /* Build configuration list for PBXProject "HotelApp" */;
@@ -315,6 +383,7 @@
 			projectRoot = "";
 			targets = (
 				76174BC41DA7A693004BD00F /* HotelApp */,
+				7658B4201DB2990A009F7788 /* HotelAppNotificationExtension */,
 				76174BD81DA7A693004BD00F /* HotelAppTests */,
 				76174BE31DA7A693004BD00F /* HotelAppUITests */,
 			);
@@ -340,6 +409,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		76174BE21DA7A693004BD00F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7658B41F1DB2990A009F7788 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -499,6 +575,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7658B41D1DB2990A009F7788 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7658B4241DB2990A009F7788 /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -511,6 +595,11 @@
 			isa = PBXTargetDependency;
 			target = 76174BC41DA7A693004BD00F /* HotelApp */;
 			targetProxy = 76174BE51DA7A693004BD00F /* PBXContainerItemProxy */;
+		};
+		7658B4271DB2990A009F7788 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7658B4201DB2990A009F7788 /* HotelAppNotificationExtension */;
+			targetProxy = 7658B4261DB2990A009F7788 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -721,6 +810,32 @@
 			};
 			name = Release;
 		};
+		7658B4291DB2990B009F7788 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = XZUC27U986;
+				INFOPLIST_FILE = HotelAppNotificationExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.CodeBurrow.HotelApp.HotelAppNotificationExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		7658B42A1DB2990B009F7788 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = XZUC27U986;
+				INFOPLIST_FILE = HotelAppNotificationExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.CodeBurrow.HotelApp.HotelAppNotificationExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -759,6 +874,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		7658B42B1DB2990B009F7788 /* Build configuration list for PBXNativeTarget "HotelAppNotificationExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7658B4291DB2990B009F7788 /* Debug */,
+				7658B42A1DB2990B009F7788 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
