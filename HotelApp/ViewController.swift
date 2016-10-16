@@ -10,10 +10,25 @@ import UIKit
 import CoreLocation
 import Alamofire
 
+enum NotificationOption: CustomStringConvertible {
+    case mutable_content, content_available
+    var description: String {
+        switch self {
+        case .mutable_content: return "mutable-content"
+        case .content_available: return "content-available"
+        }
+    }
+}
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var lastSeenLabel: UILabel!
     @IBOutlet weak var beaconNameLabel: UILabel!
+    
+    @IBOutlet weak var requestNotifNone: UIButton!
+    @IBOutlet weak var requestNotifMutableContent: UIButton!
+    @IBOutlet weak var requestNotifContentAvailable: UIButton!
+    @IBOutlet weak var requestNotifBoth: UIButton!
     
     let locationManager = CLLocationManager()
     
@@ -28,13 +43,29 @@ class ViewController: UIViewController {
     }
 
     @IBAction func requestPushNotification(_ sender: UIButton) {
-//        let notifRequestUrl = "https://hotelapp-web.herokuapp.com/push"
-        let notifRequestUrl = "https://hotelapp-web.herokuapp.com/push"
-        Alamofire.request(notifRequestUrl).responseString { (response) in
-//            print(response.request)  // original URL request
-//            print(response.response) // HTTP URL response
-//            print(response.data)     // server data
-//            print(response.result)   // result of response serialization            
+        var options = [NotificationOption]()
+        switch sender {
+        case requestNotifNone:
+            break
+        case requestNotifMutableContent:
+            options.append(NotificationOption.mutable_content)
+        case requestNotifContentAvailable:
+            options.append(NotificationOption.content_available)
+        case requestNotifBoth:
+            options.append(NotificationOption.mutable_content)
+            options.append(NotificationOption.content_available)
+        default:
+            return
+        }
+        requestNotification(with: options)
+    }
+    
+    func requestNotification(with options: [NotificationOption]) {
+        let baseUrl = "https://hotelapp-web.herokuapp.com/push?"
+        let url = options.reduce(baseUrl) { (result, option) -> String in
+            result + option.description + "=1&"
+        }
+        Alamofire.request(url).responseString { (response) in
             if let responseString = response.result.value {
                 print("Response string: \(responseString)")
             }
