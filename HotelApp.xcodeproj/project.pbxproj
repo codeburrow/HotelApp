@@ -383,9 +383,9 @@
 			projectRoot = "";
 			targets = (
 				76174BC41DA7A693004BD00F /* HotelApp */,
+				7658B4201DB2990A009F7788 /* HotelAppNotificationExtension */,
 				76174BD81DA7A693004BD00F /* HotelAppTests */,
 				76174BE31DA7A693004BD00F /* HotelAppUITests */,
-				7658B4201DB2990A009F7788 /* HotelAppNotificationExtension */,
 			);
 		};
 /* End PBXProject section */
