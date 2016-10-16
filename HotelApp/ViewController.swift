@@ -10,16 +10,6 @@ import UIKit
 import CoreLocation
 import Alamofire
 
-enum NotificationOption: CustomStringConvertible {
-    case mutable_content, content_available
-    var description: String {
-        switch self {
-        case .mutable_content: return "mutable-content"
-        case .content_available: return "content-available"
-        }
-    }
-}
-
 class ViewController: UIViewController {
 
     @IBOutlet weak var lastSeenLabel: UILabel!
@@ -65,6 +55,7 @@ class ViewController: UIViewController {
         let url = options.reduce(baseUrl) { (result, option) -> String in
             result + option.description + "=1&"
         }
+        print("Requesting notification with url: \(url)")
         Alamofire.request(url).responseString { (response) in
             if let responseString = response.result.value {
                 print("Response string: \(responseString)")

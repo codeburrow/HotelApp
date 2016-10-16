@@ -18,7 +18,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HotelAppNotificationExtension/NotificationService.swift"
-            timestampString = "498245485.785942"
+            timestampString = "498326476.502992"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "16"
@@ -33,29 +33,29 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HotelAppNotificationExtension/NotificationService.swift"
-            timestampString = "498245698.278754"
+            filePath = "HotelApp/ViewController.swift"
+            timestampString = "498330029.854591"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "serviceExtensionTimeWillExpire()"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "requestNotification(with:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HotelApp/ViewController.swift"
-            timestampString = "498324184.42729"
+            filePath = "HotelApp/NotificationManager.swift"
+            timestampString = "498330029.854591"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "requestPushNotification(_:)"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "userNotificationCenter(_:willPresent:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
