@@ -24,6 +24,21 @@ enum NotificationOption: CustomStringConvertible {
 
 class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     
+    // MARK: - Requesting notifications
+    
+    func requestNotification(with options: [NotificationOption]) {
+        let baseUrl = "https://hotelapp-web.herokuapp.com/push?"
+        let url = options.reduce(baseUrl) { (result, option) -> String in
+            result + option.description + "=1&"
+        }
+        print("Requesting notification with url: \(url)")
+        Alamofire.request(url).responseString { (response) in
+            if let responseString = response.result.value {
+                print("Response string: \(responseString)")
+            }
+        }
+    }
+    
     // MARK: - Handling notifications
     
     // Respond to user actions on a notification

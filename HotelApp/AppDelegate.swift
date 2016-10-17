@@ -19,11 +19,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        // Request permission to use location services
+        trackingManager.requestAlwaysPermissionForLocationServices()
+        
         // Setting up for Notifications
         notificationManager.setUpNotificationsFor(application)
         
-        // Request permission to use location services
-        trackingManager.requestAlwaysPermissionForLocationServices()
+        let testViewController = window?.rootViewController as? ViewController
+        testViewController?.notificationManager = notificationManager
         
         return true
     }
