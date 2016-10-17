@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Setting up for Notifications
         notificationManager.setUpNotificationsFor(application)
         
-        let testViewController = window?.rootViewController as? ViewController
+        let testViewController = window?.rootViewController as? PushTestViewController
         testViewController?.notificationManager = notificationManager
         testViewController?.trackingManager = trackingManager
         

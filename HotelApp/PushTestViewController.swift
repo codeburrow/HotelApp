@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 import Alamofire
 
-class ViewController: UIViewController {
+class PushTestViewController: UIViewController {
 
     @IBOutlet weak var lastSeenLabel: UILabel!
     @IBOutlet weak var beaconNameLabel: UILabel!
@@ -55,7 +55,7 @@ class ViewController: UIViewController {
 }
 
 // MARK: - CLLocationManagerDelegate
-extension ViewController: CLLocationManagerDelegate {
+extension PushTestViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didStartMonitoringFor region: CLRegion) {
         // Tells the delegate that a iBeacon Area is being monitored

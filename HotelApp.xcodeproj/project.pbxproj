@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		7249EBE0181B7E1BA100820D /* Pods_HotelAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 938378579CBC58550345BC3B /* Pods_HotelAppUITests.framework */; };
 		76174BC91DA7A693004BD00F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76174BC81DA7A693004BD00F /* AppDelegate.swift */; };
-		76174BCB1DA7A693004BD00F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76174BCA1DA7A693004BD00F /* ViewController.swift */; };
+		76174BCB1DA7A693004BD00F /* PushTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76174BCA1DA7A693004BD00F /* PushTestViewController.swift */; };
 		76174BCE1DA7A693004BD00F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76174BCC1DA7A693004BD00F /* Main.storyboard */; };
 		76174BD01DA7A693004BD00F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76174BCF1DA7A693004BD00F /* Assets.xcassets */; };
 		76174BD31DA7A693004BD00F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76174BD11DA7A693004BD00F /* LaunchScreen.storyboard */; };
@@ -67,7 +67,7 @@
 		31E554F07B86F6FB56B892F6 /* Pods-HotelApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotelApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HotelApp/Pods-HotelApp.debug.xcconfig"; sourceTree = "<group>"; };
 		76174BC51DA7A693004BD00F /* HotelApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotelApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76174BC81DA7A693004BD00F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		76174BCA1DA7A693004BD00F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		76174BCA1DA7A693004BD00F /* PushTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushTestViewController.swift; sourceTree = "<group>"; };
 		76174BCD1DA7A693004BD00F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		76174BCF1DA7A693004BD00F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		76174BD21DA7A693004BD00F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -236,7 +236,7 @@
 		768F11971DA9661A00454D6A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				76174BCA1DA7A693004BD00F /* ViewController.swift */,
+				76174BCA1DA7A693004BD00F /* PushTestViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -553,7 +553,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				767B83C61DAE2F7400BD5DE3 /* TrackingManager.swift in Sources */,
-				76174BCB1DA7A693004BD00F /* ViewController.swift in Sources */,
+				76174BCB1DA7A693004BD00F /* PushTestViewController.swift in Sources */,
 				767B83C81DAE347F00BD5DE3 /* NotificationManager.swift in Sources */,
 				76174BC91DA7A693004BD00F /* AppDelegate.swift in Sources */,
 			);
@@ -882,6 +882,7 @@
 				7658B42A1DB2990B009F7788 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
