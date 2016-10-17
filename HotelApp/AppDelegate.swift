@@ -64,6 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Handle notifications marked with 'content-available', indicating there is data to be fetched
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         // ...
+        print("Notification tagged as 'content-available' received.")
         completionHandler(.newData)
     }
     
