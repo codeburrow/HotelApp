@@ -66,12 +66,6 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
         completionHandler([.alert, .sound])
     }
 
-//    // Tell the app that a remote notification arrived that indicates there is data to be fetched
-//    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-//        // ...
-//        completionHandler(.newData)
-//    }
-
     // MARK: - Registering for Push Notifications
     func setUpNotificationsFor(_ application: UIApplication) {
         application.applicationIconBadgeNumber = 0
