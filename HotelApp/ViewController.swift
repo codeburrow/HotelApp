@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var requestNotifBoth: UIButton!
     
     var notificationManager: NotificationManager!
-    
+    var trackingManager: TrackingManager!
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         locationManager.delegate = self
         
         // Setup our fake iPad beacon
-        setupBeacon(withUuidString: "E2C56DB5-DFFB-48D2-B060-D0F5A71096E0")
+        trackingManager.setupBeacon(withUuidString: "E2C56DB5-DFFB-48D2-B060-D0F5A71096E0")
     }
 
     @IBAction func requestPushNotification(_ sender: UIButton) {
@@ -53,38 +53,6 @@ class ViewController: UIViewController {
     }
     
 }
-
-// MARK: - Managing iBeacons
-extension ViewController {
-    
-    func setupBeacon(withUuidString uuidString: String) {
-        
-        // Enter Your iBeacon UUID
-        let uuid = UUID(uuidString: uuidString)!
-        
-        // Setup beacon details
-        let identifier = "com.CLutas.fakeBeacon.iPadAir"
-        let Major:CLBeaconMajorValue = 0
-        let Minor:CLBeaconMinorValue = 0
-        
-        let beaconRegion = CLBeaconRegion(proximityUUID: uuid, major: Major, minor: Minor, identifier: identifier)
-        
-        // call delegate when Enter iBeacon Range
-        beaconRegion.notifyOnEntry = true
-        
-        // call delegate when Exit iBeacon Range
-        beaconRegion.notifyOnExit = true
-        
-        // Start monitoring the specified iBeacon Region
-        locationManager.startRangingBeacons(in: beaconRegion)
-        locationManager.startMonitoring(for: beaconRegion)
-        
-        locationManager.pausesLocationUpdatesAutomatically = false
-        
-    }
-    
-}
-
 
 // MARK: - CLLocationManagerDelegate
 extension ViewController: CLLocationManagerDelegate {

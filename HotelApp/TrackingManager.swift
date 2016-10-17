@@ -20,6 +20,34 @@ class TrackingManager: NSObject, CLLocationManagerDelegate {
         }
     }
     
+    // MARK: - iBeacon Setup
+    func setupBeacon(withUuidString uuidString: String) {
+        
+        // Enter Your iBeacon UUID
+        let uuid = UUID(uuidString: uuidString)!
+        
+        // Setup beacon details
+        let identifier = "com.CLutas.fakeBeacon.iPadAir"
+        let Major:CLBeaconMajorValue = 0
+        let Minor:CLBeaconMinorValue = 0
+        
+        let beaconRegion = CLBeaconRegion(proximityUUID: uuid, major: Major, minor: Minor, identifier: identifier)
+        
+        // call delegate when Enter iBeacon Range
+        beaconRegion.notifyOnEntry = true
+        
+        // call delegate when Exit iBeacon Range
+        beaconRegion.notifyOnExit = true
+        
+        // Start monitoring the specified iBeacon Region
+        locationManager.startRangingBeacons(in: beaconRegion)
+        locationManager.startMonitoring(for: beaconRegion)
+        
+        locationManager.pausesLocationUpdatesAutomatically = false
+        
+    }
+    
+    // MARK: - Requesting Permission for Location Services
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         
         switch status {

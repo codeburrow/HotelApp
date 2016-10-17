@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let testViewController = window?.rootViewController as? ViewController
         testViewController?.notificationManager = notificationManager
+        testViewController?.trackingManager = trackingManager
         
         return true
     }
