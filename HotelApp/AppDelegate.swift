@@ -61,4 +61,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("didRegisterForRemoteNotificationsWithDeviceToken: \(deviceTokenString)")
     }
     
+    // Handle notifications marked with 'content-available', indicating there is data to be fetched
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        // ...
+        completionHandler(.newData)
+    }
+    
+
+    
 }
